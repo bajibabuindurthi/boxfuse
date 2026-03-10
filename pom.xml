@@ -7,26 +7,42 @@
     <version>1.0</version>
     <name>hello</name>
     <url>https://github.com/boxfuse/boxfuse-sample-java-war-hello</url>
+    
+    <properties>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    
     <dependencies>
+        <!-- Jakarta Servlet API (modern replacement for javax.servlet) -->
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>3.1.0</version>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+            <version>6.0.0</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
+    
     <build>
         <plugins>
+            <!-- Maven Compiler Plugin 3.11.0+ supports Java 21 -->
             <plugin>
-                   <artifactId>maven-compiler-plugin</artifactId>
-                   <version>3.10.1</version> <!-- Or latest stable -->
-                   <configuration>
-                   <release>21</release>
-           </configuration>
-          </plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <source>21</source>
+                    <target>21</target>
+                    <release>21</release>
+                </configuration>
+            </plugin>
+            
+            <!-- Maven WAR Plugin 3.3.2+ for better compatibility -->
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
-                <version>2.5</version>
+                <version>3.3.2</version>
                 <configuration>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
