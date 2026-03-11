@@ -39,13 +39,21 @@
             </plugin>
             <!-- Maven WAR Plugin 3.4.0 -->
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>3.4.0</version>
-                <configuration>
-                    <failOnMissingWebXml>false</failOnMissingWebXml>
-                </configuration>
-            </plugin>
+                      <groupId>org.apache.maven.plugins</groupId>
+                      <artifactId>maven-compiler-plugin</artifactId>
+                      <version>3.13.0</version>  <!-- or newer, like 3.14.0+ -->
+             <configuration>
+        <release>21</release>
+    </configuration>
+</plugin>
         </plugins>
     </build>
 </project>
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-compiler-plugin</artifactId>
+    <version>3.13.0</version>  <!-- or newer, like 3.14.0+ -->
+    <configuration>
+        <release>21</release>
+    </configuration>
+</plugin>
